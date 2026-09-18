@@ -9,20 +9,22 @@ public class InputUtil {
 
 	public int inputInt() {
 		int menuNumber;
+
 		while (true) {
 			try {
 				menuNumber = scan.nextInt();
 			} catch (InputMismatchException inputMiss) {
 				System.out.println("入力した値は整数ではありません");
-				System.out.println("数字を再入力してください");
+				System.out.println("0～5の整数を再入力してください");
 				scan.nextLine();
 				continue;
 			}
+
 			if (menuNumber >= 0 && menuNumber <= 5) {
 				return menuNumber;
 			} else {
-				System.out.println("入力した値は0~5ではありません");
-				System.out.println("数字を再入力してください");
+				System.out.println("入力した値は0～5ではありません");
+				System.out.println("0～5の整数を再入力してください");
 			}
 		}
 	}
