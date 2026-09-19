@@ -7,25 +7,31 @@ import java.util.Scanner;
 public class InputUtil {
 	Scanner scan = new Scanner(System.in);
 
-	public int inputInt() {
-		int menuNumber;
+	public int inputInt(int min, int max) {
+		int inputNumber;
 
 		while (true) {
 			try {
-				menuNumber = scan.nextInt();
+				inputNumber = scan.nextInt();
 			} catch (InputMismatchException inputMiss) {
 				System.out.println("入力した値は整数ではありません");
-				System.out.println("0～5の整数を再入力してください");
+				System.out.println(min + "～" + max + "の整数を再入力してください");
 				scan.nextLine();
 				continue;
 			}
 
-			if (menuNumber >= 0 && menuNumber <= 5) {
-				return menuNumber;
+			if (inputNumber >= min && inputNumber <= max) {
+				scan.nextLine();
+				return inputNumber;
 			} else {
-				System.out.println("入力した値は0～5ではありません");
-				System.out.println("0～5の整数を再入力してください");
+				System.out.println("入力した値は" + min + "～" + max + "ではありません");
+				System.out.println(min + "～" + max + "の整数を再入力してください");
 			}
 		}
+	}
+
+	public String inputString() {
+		String text = scan.nextLine();
+		return text;
 	}
 }
