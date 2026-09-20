@@ -1,6 +1,10 @@
 //入力受付・入力チェック
 package SakiYaru;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.time.format.ResolverStyle;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -33,5 +37,21 @@ public class InputUtil {
 	public String inputString() {
 		String text = scan.nextLine();
 		return text;
+	}
+
+	public LocalDate inputLocalDate() {
+
+		while (true) {
+			try {
+				String inputDate = scan.nextLine();
+				DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("uuuuMMdd")
+						.withResolverStyle(ResolverStyle.STRICT);
+				return LocalDate.parse(inputDate, dateFormat);
+			} catch (DateTimeParseException inputMiss) {
+				System.out.println("入力した日付が正しくありません");
+				System.out.println("正しい日付を8桁の形式で入力してください");
+				continue;
+			}
+		}
 	}
 }
