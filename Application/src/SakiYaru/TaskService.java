@@ -25,7 +25,7 @@ public class TaskService {
 //		System.out.println("メニューに戻ります");
 	}
 
-	public void taskList() {
+	public void showTaskList() {
 		System.out.println("表示方法を選択してください");
 	}
 
@@ -37,7 +37,7 @@ public class TaskService {
 		System.out.println("削除するIDを入力してください");
 	}
 
-	public void taskComplete() {
+	public void taskCompleted() {
 		System.out.println("完了するタスクのIDを入力してください");
 	}
 

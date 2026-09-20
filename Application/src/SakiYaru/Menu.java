@@ -25,7 +25,7 @@ public class Menu {
 			taskService.taskRegistration(inputUtil);
 			break;
 		case 2:
-			taskService.taskList();
+			taskService.showTaskList();
 			break;
 		case 3:
 			taskService.taskUpdate();
@@ -34,7 +34,7 @@ public class Menu {
 			taskService.taskDelete();
 			break;
 		case 5:
-			taskService.taskComplete();
+			taskService.taskCompleted();
 			break;
 		case 0:
 			taskService.appClose();
