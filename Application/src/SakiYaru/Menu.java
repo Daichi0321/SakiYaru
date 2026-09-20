@@ -17,12 +17,12 @@ public class Menu {
 
 	public void menuChoice() {
 		InputUtil inputUtil = new InputUtil();
-		int menuNumber = inputUtil.inputInt();
+		int menuNumber = inputUtil.inputInt(0, 5);
 		TaskService taskService = new TaskService();
 
 		switch (menuNumber) {
 		case 1:
-			taskService.taskRegistration();
+			taskService.taskRegistration(inputUtil);
 			break;
 		case 2:
 			taskService.taskList();
