@@ -10,19 +10,23 @@ public class TaskService {
 	List<Task> taskList = new ArrayList<Task>();
 
 	public void taskRegistration(InputUtil inputUtil) {
-
 		System.out.println("タスク名を入力してください");
 		String taskName = inputUtil.inputString();
+
 		System.out.println("重要度を1〜5の整数で入力してください");
 		int importance = inputUtil.inputInt(1, 5);
+
 		System.out.println("期限を8桁の形式で入力してください(例：20260928)");
 		LocalDate deadline = inputUtil.inputLocalDate();
+
 		boolean completed = false;
 		Task task = new Task(nextId, taskName, importance, deadline, completed);
 		taskList.add(task);
 		nextId += 1;
+
 		System.out.println("登録が完了しました");
-//		System.out.println("メニューに戻ります");
+		System.out.println("Enterキーを押してメニューに戻ります");
+		inputUtil.inputString();
 	}
 
 	public void showTaskList() {
