@@ -17,28 +17,33 @@ public class Menu {
 
 	public void menuChoice() {
 		InputUtil inputUtil = new InputUtil();
-		int menuNumber = inputUtil.inputInt(0, 5);
 		TaskService taskService = new TaskService();
 
-		switch (menuNumber) {
-		case 1:
-			taskService.taskRegistration(inputUtil);
-			break;
-		case 2:
-			taskService.showTaskList();
-			break;
-		case 3:
-			taskService.taskUpdate();
-			break;
-		case 4:
-			taskService.taskDelete();
-			break;
-		case 5:
-			taskService.taskCompleted();
-			break;
-		case 0:
-			taskService.appClose();
-			break;
+		while (true) {
+			showMenu();
+
+			int menuNumber = inputUtil.inputInt(0, 5);
+
+			switch (menuNumber) {
+			case 1:
+				taskService.taskRegistration(inputUtil);
+				break;
+			case 2:
+				taskService.showTaskList();
+				break;
+			case 3:
+				taskService.taskUpdate();
+				break;
+			case 4:
+				taskService.taskDelete();
+				break;
+			case 5:
+				taskService.taskCompleted();
+				break;
+			case 0:
+				taskService.appClose();
+				break;
+			}
 		}
 	}
 }
