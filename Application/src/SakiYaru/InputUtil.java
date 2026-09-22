@@ -40,7 +40,6 @@ public class InputUtil {
 	}
 
 	public LocalDate inputLocalDate() {
-
 		while (true) {
 			try {
 				String inputDate = scan.nextLine();
@@ -51,6 +50,29 @@ public class InputUtil {
 				System.out.println("入力した日付が正しくありません");
 				System.out.println("正しい日付を8桁の形式で入力してください");
 				continue;
+			}
+		}
+	}
+
+	public int inputId() {
+		int id;
+
+		while (true) {
+			try {
+				id = scan.nextInt();
+			} catch (InputMismatchException inputMiss) {
+				System.out.println("入力した値は整数ではありません");
+				System.out.println("1以上の整数を再入力してください");
+				scan.nextLine();
+				continue;
+			}
+
+			if (id >= 1) {
+				scan.nextLine();
+				return id;
+			} else {
+				System.out.println("入力した値は1以上ではありません");
+				System.out.println("1以上の整数を再入力してください");
 			}
 		}
 	}
