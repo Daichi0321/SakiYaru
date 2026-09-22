@@ -29,18 +29,19 @@ public class Menu {
 				taskService.taskRegistration(inputUtil);
 				break;
 			case 2:
-				taskService.showTaskList();
+				taskService.showTaskList(inputUtil);
 				break;
 			case 3:
-				taskService.taskUpdate();
+				taskService.taskUpdate(inputUtil);
 				break;
 			case 4:
-				taskService.taskDelete();
+				taskService.taskDelete(inputUtil);
 				break;
 			case 5:
-				taskService.taskCompleted();
+				taskService.taskCompleted(inputUtil);
 				break;
 			case 0:
+				System.out.println("アプリを終了します");
 				taskService.appClose();
 				break;
 			}
