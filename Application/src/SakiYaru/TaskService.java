@@ -90,8 +90,67 @@ public class TaskService {
 		taskView.taskListView(incompleteList);
 	}
 
-	public void taskUpdate() {
+	public void taskUpdate(InputUtil inputUtil) {
 		System.out.println("更新するIDを入力してください");
+		while (true) {
+			int updateId = inputUtil.inputId();
+			boolean found = false;
+
+			for (Task task : taskList) {
+				if (task.getId() == updateId) {
+					System.out.println("変更項目を選択してください");
+					System.out.println();
+					System.out.println("1.タスク名");
+					System.out.println("2.重要度");
+					System.out.println("3.締切日");
+					System.out.println("0.メニューに戻る");
+					System.out.println();
+					System.out.println("番号を入力してください");
+
+					int updateNumber = inputUtil.inputInt(0, 3);
+					found = true;
+
+					switch (updateNumber) {
+					case 1:
+						System.out.println("タスク名を入力してください");
+						String taskName = inputUtil.inputString();
+
+						task.setTaskName(taskName);
+
+						System.out.println("更新が完了しました");
+						System.out.println("Enterキーを押してメニューに戻ります");
+						inputUtil.inputString();
+						return;
+					case 2:
+						System.out.println("重要度を1〜5の整数で入力してください");
+						int importance = inputUtil.inputInt(1, 5);
+
+						task.setImportance(importance);
+
+						System.out.println("更新が完了しました");
+						System.out.println("Enterキーを押してメニューに戻ります");
+						inputUtil.inputString();
+						return;
+					case 3:
+						System.out.println("期限を8桁の形式で入力してください(例：20260928)");
+						LocalDate deadline = inputUtil.inputLocalDate();
+
+						task.setDeadline(deadline);
+
+						System.out.println("更新が完了しました");
+						System.out.println("Enterキーを押してメニューに戻ります");
+						inputUtil.inputString();
+						return;
+					case 0:
+						return;
+					}
+				}
+			}
+			if (!found) {
+				System.out.println("入力したIDは存在しません");
+				System.out.println("正しいIDを再入力してください");
+			}
+		}
 	}
 
 	public void taskDelete() {
