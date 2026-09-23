@@ -76,4 +76,19 @@ public class InputUtil {
 			}
 		}
 	}
+
+	public boolean inputYesNo() {
+		while (true) {
+			String answer = scan.nextLine();
+
+			if (answer.equals("y")) {
+				return true;
+			} else if (answer.equals("n")) {
+				return false;
+			} else {
+				System.out.println("入力した値が正しくありません");
+				System.out.println("y(yes)またはn(no)を再入力してください");
+			}
+		}
+	}
 }
