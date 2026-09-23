@@ -153,8 +153,41 @@ public class TaskService {
 		}
 	}
 
-	public void taskDelete() {
+	public void taskDelete(InputUtil inputUtil) {
 		System.out.println("削除するIDを入力してください");
+		while (true) {
+			int deleteId = inputUtil.inputId();
+			boolean found = false;
+			Task deleteTask = null;
+
+			for (Task task : taskList) {
+				if (task.getId() == deleteId) {
+					found = true;
+					deleteTask = task;
+				}
+			}
+
+			if (!found) {
+				System.out.println("入力したIDは存在しません");
+				System.out.println("正しいIDを再入力してください");
+			} else {
+				System.out.println("本当に削除しますか？(y/n)");
+				boolean confirm = inputUtil.inputYesNo();
+
+				if (confirm) {
+					taskList.remove(deleteTask);
+
+					System.out.println("削除が完了しました");
+					System.out.println("Enterキーを押してメニューに戻ります");
+					inputUtil.inputString();
+					return;
+				} else {
+					System.out.println("Enterキーを押してメニューに戻ります");
+					inputUtil.inputString();
+					return;
+				}
+			}
+		}
 	}
 
 	public void taskCompleted() {
