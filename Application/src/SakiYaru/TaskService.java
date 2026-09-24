@@ -29,8 +29,7 @@ public class TaskService {
 		nextId += 1;
 
 		System.out.println("登録が完了しました");
-		System.out.println("Enterキーを押してメニューに戻ります");
-		inputUtil.inputString();
+		taskView.backToMenu(inputUtil);
 	}
 
 	// タスク一覧
@@ -41,27 +40,20 @@ public class TaskService {
 		switch (viewNumber) {
 		case 1:
 			taskView.taskListView(taskList);
-			System.out.println("Enterキーを押してメニューに戻ります");
-			inputUtil.inputString();
 			break;
 		case 2:
 			sortImportance();
-			System.out.println("Enterキーを押してメニューに戻ります");
-			inputUtil.inputString();
 			break;
 		case 3:
 			sortDeadline();
-			System.out.println("Enterキーを押してメニューに戻ります");
-			inputUtil.inputString();
 			break;
 		case 4:
 			filterIncomplete();
-			System.out.println("Enterキーを押してメニューに戻ります");
-			inputUtil.inputString();
 			break;
 		case 0:
-			break;
+			return;
 		}
+		taskView.backToMenu(inputUtil);
 	}
 
 	// 重要度順で並び替え
@@ -90,8 +82,7 @@ public class TaskService {
 	public void taskUpdate(InputUtil inputUtil) {
 		if (taskList.isEmpty()) {
 			System.out.println("タスクが登録されていません");
-			System.out.println("Enterキーを押してメニューに戻ります");
-			inputUtil.inputString();
+			taskView.backToMenu(inputUtil);
 			return;
 		} else {
 			System.out.println("更新するIDを入力してください");
@@ -113,34 +104,25 @@ public class TaskService {
 						String taskName = inputUtil.inputString();
 
 						task.setTaskName(taskName);
-
-						System.out.println("更新が完了しました");
-						System.out.println("Enterキーを押してメニューに戻ります");
-						inputUtil.inputString();
-						return;
+						break;
 					case 2:
 						System.out.println("重要度を1〜5の整数で入力してください");
 						int importance = inputUtil.inputInt(1, 5);
 
 						task.setImportance(importance);
-
-						System.out.println("更新が完了しました");
-						System.out.println("Enterキーを押してメニューに戻ります");
-						inputUtil.inputString();
-						return;
+						break;
 					case 3:
 						System.out.println("期限を8桁の形式で入力してください(例：20260928)");
 						LocalDate deadline = inputUtil.inputLocalDate();
 
 						task.setDeadline(deadline);
-
-						System.out.println("更新が完了しました");
-						System.out.println("Enterキーを押してメニューに戻ります");
-						inputUtil.inputString();
-						return;
+						break;
 					case 0:
 						return;
 					}
+					System.out.println("更新が完了しました");
+					taskView.backToMenu(inputUtil);
+					return;
 				}
 			}
 
@@ -155,8 +137,7 @@ public class TaskService {
 	public void taskDelete(InputUtil inputUtil) {
 		if (taskList.isEmpty()) {
 			System.out.println("タスクが登録されていません");
-			System.out.println("Enterキーを押してメニューに戻ります");
-			inputUtil.inputString();
+			taskView.backToMenu(inputUtil);
 			return;
 		} else {
 			System.out.println("削除するIDを入力してください");
@@ -185,12 +166,10 @@ public class TaskService {
 					taskList.remove(deleteTask);
 
 					System.out.println("削除が完了しました");
-					System.out.println("Enterキーを押してメニューに戻ります");
-					inputUtil.inputString();
+					taskView.backToMenu(inputUtil);
 					return;
 				} else {
-					System.out.println("Enterキーを押してメニューに戻ります");
-					inputUtil.inputString();
+					taskView.backToMenu(inputUtil);
 					return;
 				}
 			}
@@ -201,8 +180,7 @@ public class TaskService {
 	public void taskCompleted(InputUtil inputUtil) {
 		if (taskList.isEmpty()) {
 			System.out.println("タスクが登録されていません");
-			System.out.println("Enterキーを押してメニューに戻ります");
-			inputUtil.inputString();
+			taskView.backToMenu(inputUtil);
 			return;
 		} else {
 			System.out.println("完了するIDを入力してください");
@@ -233,8 +211,7 @@ public class TaskService {
 				System.out.println("未完了のタスクのIDを再入力してください");
 			} else {
 				System.out.println("タスクを完了しました");
-				System.out.println("Enterキーを押してメニューに戻ります");
-				inputUtil.inputString();
+				taskView.backToMenu(inputUtil);
 				return;
 			}
 		}
