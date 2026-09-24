@@ -91,7 +91,15 @@ public class TaskService {
 	}
 
 	public void taskUpdate(InputUtil inputUtil) {
-		System.out.println("更新するIDを入力してください");
+		if (taskList.isEmpty()) {
+			System.out.println("タスクが登録されていません");
+			System.out.println("Enterキーを押してメニューに戻ります");
+			inputUtil.inputString();
+			return;
+		} else {
+			System.out.println("更新するIDを入力してください");
+		}
+
 		while (true) {
 			int updateId = inputUtil.inputId();
 			boolean found = false;
@@ -154,7 +162,15 @@ public class TaskService {
 	}
 
 	public void taskDelete(InputUtil inputUtil) {
-		System.out.println("削除するIDを入力してください");
+		if (taskList.isEmpty()) {
+			System.out.println("タスクが登録されていません");
+			System.out.println("Enterキーを押してメニューに戻ります");
+			inputUtil.inputString();
+			return;
+		} else {
+			System.out.println("削除するIDを入力してください");
+		}
+
 		while (true) {
 			int deleteId = inputUtil.inputId();
 			boolean found = false;
@@ -191,7 +207,15 @@ public class TaskService {
 	}
 
 	public void taskCompleted(InputUtil inputUtil) {
-		System.out.println("完了するタスクのIDを入力してください");
+		if (taskList.isEmpty()) {
+			System.out.println("タスクが登録されていません");
+			System.out.println("Enterキーを押してメニューに戻ります");
+			inputUtil.inputString();
+			return;
+		} else {
+			System.out.println("完了するIDを入力してください");
+		}
+
 		while (true) {
 			int completeId = inputUtil.inputId();
 			boolean found = false;
