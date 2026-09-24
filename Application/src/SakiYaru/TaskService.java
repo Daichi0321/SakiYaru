@@ -242,6 +242,7 @@ public class TaskService {
 
 	// アプリ終了
 	public void appClose() {
+		System.out.println("アプリを終了します");
 		System.exit(0);
 	}
 }

@@ -42,7 +42,6 @@ public class Menu {
 				taskService.taskCompleted(inputUtil);
 				break;
 			case 0:
-				System.out.println("アプリを終了します");
 				taskService.appClose();
 				break;
 			}
