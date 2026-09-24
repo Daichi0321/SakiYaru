@@ -4,6 +4,7 @@ package SakiYaru;
 import java.util.List;
 
 public class TaskView {
+	// タスク一覧を表示
 	public void taskListView(List<Task> taskList) {
 		for (Task task : taskList) {
 			System.out.println("タスクID：" + task.getId());
@@ -21,6 +22,7 @@ public class TaskView {
 		}
 	}
 
+	// タスク一覧の表示方法の選択メニューを表示
 	public void showTaskListMenu() {
 		System.out.println("表示方法を選択してください");
 		System.out.println();
@@ -33,6 +35,7 @@ public class TaskView {
 		System.out.println("番号を入力してください");
 	}
 
+	// タスク更新の変更項目の選択メニューを表示
 	public void showUpdateMenu() {
 		System.out.println("変更項目を選択してください");
 		System.out.println();
@@ -43,5 +46,4 @@ public class TaskView {
 		System.out.println();
 		System.out.println("番号を入力してください");
 	}
-
 }

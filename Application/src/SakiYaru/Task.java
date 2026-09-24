@@ -10,6 +10,7 @@ public class Task {
 	private LocalDate deadline;
 	private boolean completed;
 
+	// コンストラクタ
 	public Task(int id, String taskName, int importance, LocalDate deadline, boolean completed) {
 		this.id = id;
 		this.taskName = taskName;
@@ -18,6 +19,7 @@ public class Task {
 		this.completed = completed;
 	}
 
+	// ゲッターとセッター
 	public int getId() {
 		return id;
 	}

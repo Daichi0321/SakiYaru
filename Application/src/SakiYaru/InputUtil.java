@@ -11,6 +11,7 @@ import java.util.Scanner;
 public class InputUtil {
 	Scanner scan = new Scanner(System.in);
 
+	// 引数で受け取った範囲の整数を入力
 	public int inputInt(int min, int max) {
 		int inputNumber;
 
@@ -34,11 +35,13 @@ public class InputUtil {
 		}
 	}
 
+	// 文字列を入力
 	public String inputString() {
 		String text = scan.nextLine();
 		return text;
 	}
 
+	// 日付を8桁の形式で入力
 	public LocalDate inputLocalDate() {
 		while (true) {
 			try {
@@ -54,6 +57,7 @@ public class InputUtil {
 		}
 	}
 
+	// 1以上のIDを入力
 	public int inputId() {
 		int id;
 
@@ -77,6 +81,7 @@ public class InputUtil {
 		}
 	}
 
+	// yかnを入力
 	public boolean inputYesNo() {
 		while (true) {
 			String answer = scan.nextLine();

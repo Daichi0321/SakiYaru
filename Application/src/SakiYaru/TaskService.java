@@ -12,6 +12,7 @@ public class TaskService {
 	List<Task> taskList = new ArrayList<Task>();
 	TaskView taskView = new TaskView();
 
+	// タスク登録
 	public void taskRegistration(InputUtil inputUtil) {
 		System.out.println("タスク名を入力してください");
 		String taskName = inputUtil.inputString();
@@ -32,6 +33,7 @@ public class TaskService {
 		inputUtil.inputString();
 	}
 
+	// タスク一覧
 	public void showTaskList(InputUtil inputUtil) {
 		taskView.showTaskListMenu();
 		int viewNumber = inputUtil.inputInt(0, 4);
@@ -62,18 +64,21 @@ public class TaskService {
 		}
 	}
 
+	// 重要度順で並び替え
 	public void sortImportance() {
 		List<Task> importanceList = new ArrayList<Task>(taskList);
 		importanceList.sort(Comparator.comparingInt(Task::getImportance).reversed());
 		taskView.taskListView(importanceList);
 	}
 
+	// 締切日順で並び替え
 	public void sortDeadline() {
 		List<Task> deadlineList = new ArrayList<Task>(taskList);
 		deadlineList.sort(Comparator.comparing(Task::getDeadline));
 		taskView.taskListView(deadlineList);
 	}
 
+	// 未完了のみで絞り込み
 	public void filterIncomplete() {
 		List<Task> incompleteList = taskList.stream()
 				.filter(task -> !task.isCompleted())
@@ -81,6 +86,7 @@ public class TaskService {
 		taskView.taskListView(incompleteList);
 	}
 
+	// タスク更新
 	public void taskUpdate(InputUtil inputUtil) {
 		if (taskList.isEmpty()) {
 			System.out.println("タスクが登録されていません");
@@ -137,6 +143,7 @@ public class TaskService {
 					}
 				}
 			}
+
 			if (!found) {
 				System.out.println("入力したIDは存在しません");
 				System.out.println("存在するIDを再入力してください");
@@ -144,6 +151,7 @@ public class TaskService {
 		}
 	}
 
+	// タスク削除
 	public void taskDelete(InputUtil inputUtil) {
 		if (taskList.isEmpty()) {
 			System.out.println("タスクが登録されていません");
@@ -189,6 +197,7 @@ public class TaskService {
 		}
 	}
 
+	// タスク完了
 	public void taskCompleted(InputUtil inputUtil) {
 		if (taskList.isEmpty()) {
 			System.out.println("タスクが登録されていません");
@@ -231,6 +240,7 @@ public class TaskService {
 		}
 	}
 
+	// アプリ終了
 	public void appClose() {
 		System.exit(0);
 	}

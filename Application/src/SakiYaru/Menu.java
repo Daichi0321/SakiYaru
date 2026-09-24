@@ -2,6 +2,7 @@
 package SakiYaru;
 
 public class Menu {
+	// メインメニューを表示
 	public void showMenu() {
 		System.out.println("-SakiYaru-");
 		System.out.println();
@@ -15,13 +16,13 @@ public class Menu {
 		System.out.println("番号を入力してください");
 	}
 
+	// 選択されたメニューの処理を呼び出す
 	public void menuChoice() {
 		InputUtil inputUtil = new InputUtil();
 		TaskService taskService = new TaskService();
 
 		while (true) {
 			showMenu();
-
 			int menuNumber = inputUtil.inputInt(0, 5);
 
 			switch (menuNumber) {
