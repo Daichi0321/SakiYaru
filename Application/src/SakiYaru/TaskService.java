@@ -156,7 +156,7 @@ public class TaskService {
 			}
 			if (!found) {
 				System.out.println("入力したIDは存在しません");
-				System.out.println("正しいIDを再入力してください");
+				System.out.println("存在するIDを再入力してください");
 			}
 		}
 	}
@@ -185,7 +185,7 @@ public class TaskService {
 
 			if (!found) {
 				System.out.println("入力したIDは存在しません");
-				System.out.println("正しいIDを再入力してください");
+				System.out.println("存在するIDを再入力してください");
 			} else {
 				System.out.println("本当に削除しますか？(y/n)");
 				boolean confirm = inputUtil.inputYesNo();
@@ -235,7 +235,7 @@ public class TaskService {
 
 			if (!found) {
 				System.out.println("入力したIDは存在しません");
-				System.out.println("正しいIDを再入力してください");
+				System.out.println("存在するIDを再入力してください");
 			} else if (alreadyCompleted) {
 				System.out.println("入力したIDのタスクは既に完了しています");
 				System.out.println("未完了のタスクのIDを再入力してください");
