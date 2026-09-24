@@ -7,6 +7,7 @@ public class TaskView {
 	// タスク一覧を表示
 	public void taskListView(List<Task> taskList) {
 		for (Task task : taskList) {
+			System.out.println();
 			System.out.println("タスクID：" + task.getId());
 			System.out.println("タスク名：" + task.getTaskName());
 			System.out.println("重要度：" + task.getImportance());
@@ -17,8 +18,6 @@ public class TaskView {
 			} else {
 				System.out.println("進捗：未完了");
 			}
-
-			System.out.println();
 		}
 	}
 
