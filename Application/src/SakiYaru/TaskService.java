@@ -190,8 +190,38 @@ public class TaskService {
 		}
 	}
 
-	public void taskCompleted() {
+	public void taskCompleted(InputUtil inputUtil) {
 		System.out.println("完了するタスクのIDを入力してください");
+		while (true) {
+			int completeId = inputUtil.inputId();
+			boolean found = false;
+			boolean alreadyCompleted = false;
+
+			for (Task task : taskList) {
+				if (task.getId() == completeId) {
+					found = true;
+
+					if (task.isCompleted()) {
+						alreadyCompleted = true;
+					} else {
+						task.setCompleted(true);
+					}
+				}
+			}
+
+			if (!found) {
+				System.out.println("入力したIDは存在しません");
+				System.out.println("正しいIDを再入力してください");
+			} else if (alreadyCompleted) {
+				System.out.println("入力したIDのタスクは既に完了しています");
+				System.out.println("未完了のタスクのIDを再入力してください");
+			} else {
+				System.out.println("タスクを完了しました");
+				System.out.println("Enterキーを押してメニューに戻ります");
+				inputUtil.inputString();
+				return;
+			}
+		}
 	}
 
 	public void appClose() {
