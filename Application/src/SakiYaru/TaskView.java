@@ -45,4 +45,10 @@ public class TaskView {
 		System.out.println();
 		System.out.println("番号を入力してください");
 	}
+
+	// Enterキーの入力を待ってメニューに戻る
+	public void backToMenu(InputUtil inputUtil) {
+		System.out.println("Enterキーを押してメニューに戻ります");
+		inputUtil.inputString();
+	}
 }
